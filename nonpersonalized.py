@@ -23,7 +23,7 @@ def dampedMeans(movieId, k):
 
 #add a function to recommend top damped means? or damped means for each movieId
 
-#basic association model (P(X and Y)/P(Y))
+#basic association model (P(X intersection Y)/P(Y))
 def basicAssoc(i_id,j_id):
 	j = df['movieId'] == j_id
 	i = df['movieId'] == i_id
@@ -35,6 +35,7 @@ def basicAssoc(i_id,j_id):
 	inter = set(i_users).intersection(set(j_users))
 	return (len(inter)/total_users)/((len(j_users)/total_users))
 
+#lift association model (P(X intersection Y)/(P(Y)*P(X)))
 def liftAssoc(i_id,j_id):
 	j = df['movieId'] == j_id
 	i = df['movieId'] == i_id
@@ -45,3 +46,6 @@ def liftAssoc(i_id,j_id):
 	#calculate i and j intersection
 	inter = set(i_users).intersection(set(j_users))
 	return (len(inter)/total_users)/((len(j_users)/total_users)*(len(i_users)/total_users))
+
+#to do: write functions that take input and provide recommendations
+
