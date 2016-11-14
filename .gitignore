@@ -1,2 +1,6 @@
 /py3
 /.ipynb_checkpoints
+/__pycache__
+/scrap_folder
+/data
+secrets.py
