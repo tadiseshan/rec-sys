@@ -15,7 +15,7 @@ def top_tfidf(row_num, n):
 	top_n = feature_names[tfidf_sorting][:n]
 	return top_n
 
-# print(top_tfidf(70, 20))
+print(top_tfidf(70, 20))
 
 def cos_sim(artist_id):
 	cosine_similarity = linear_kernel(tfidf_matrix[artist_id], tfidf_matrix).flatten()
@@ -23,6 +23,6 @@ def cos_sim(artist_id):
 	s = [df.ix[top_sim[i]]['artist'] for i in range(len(top_sim))]
 	return s
 
-print(df.ix[34]['artist'] + ' is similar to:')
-print(cos_sim(34))
+# print(df.ix[34]['artist'] + ' is similar to:')
+# print(cos_sim(34))
 
